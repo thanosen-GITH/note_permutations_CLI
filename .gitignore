@@ -1,0 +1,28 @@
+.DS_Store
+
+# Build outputs
+build/
+build-win/
+build-linux/
+dist/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+compile_commands.json
+Makefile
+
+# Binaries and objects
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+*.out
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+*.swo
