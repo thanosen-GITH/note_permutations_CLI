@@ -4,7 +4,6 @@
 build/
 build-win/
 build-linux/
-dist/
 cmake-build-*/
 CMakeFiles/
 CMakeCache.txt
