@@ -74,6 +74,21 @@ sh create_dist.sh
 This project is shared publicly for viewing and feedback, but **no license is granted at this time**.  
 All rights are reserved by the author as of January 25, 2026.
 
+## macOS security warning (unsigned app)
+
+This app is **not notarized** by Apple (paid Developer ID required), so macOS may block it on first run.
+Do **not** disable security system‑wide. Instead use one of these safe, per‑app options:
+
+1. **System Settings override**
+   - Try to open the app once (it will be blocked).
+   - Go to **System Settings → Privacy & Security** and click **Open Anyway**.
+
+2. **Remove the quarantine flag (Terminal)**
+
+```sh
+xattr -dr com.apple.quarantine "dist/macos/Note Permutations MacOs.app"
+```
+
 ## Notes
 
 - The Linux build uses Docker and installs build tools inside the container.
