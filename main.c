@@ -63,11 +63,13 @@ int main(int argc, char** argv) {
     }
     
     char notes[N][3];
+    char tmp[N][3];
     char buffer[128] = "\0";
     int i,j;
     
     for(i=0;i<N;i++) strcpy(notes[i],"\0");
-
+    
+    
     printf("Please give notes, one by one (hit enter after each note)\n");
     
     for(i=0;i<N;i++) {
@@ -77,14 +79,21 @@ int main(int argc, char** argv) {
             printf("Invalid Note %s! Exiting!\n",notes[i]);
             return -1;
         }
-        char tmp[3] = {0};
-        strncpy(tmp,notes[i],2);
-        if(tmp[1]<35||tmp[1]>103) tmp[1]=' ';
-        if(!determine_note(tmp,4)) {
-            printf("Invalid Note %s! Exiting!\n",tmp);
+        
+        strncpy(tmp[i],notes[i],2);
+        if(tmp[i][1]<35||tmp[i][1]>103) tmp[i][1]=' ';
+        if(!determine_note(tmp[i],4)) {
+            printf("Invalid Note %s! Exiting!\n",tmp[i]);
             return -1;
         }
+        for(j=0;j<i;j++) if(determine_note(tmp[j],4)==determine_note(tmp[i],4)) {
+            printf("Please don't repeat same notes twice!\nTry another note");
+            i--;
+            break;
+        }
     }
+
+
     
     init_factorials();
     int fc,F=factorial(N),FL=factorial(NLIMIT),F11=factorial(11);
@@ -116,7 +125,7 @@ int main(int argc, char** argv) {
     if(i!=0) {
         perror("Folder/File creation problem: ");
         struct stat dir;
-        if(stat(allnotes, &dir)) {
+        if(!stat(allnotes, &dir)) {
             printf("Should pre-existing files be replaced?(y/n)\n>");
             fgets(buffer,8,stdin);
 
@@ -200,16 +209,22 @@ int main(int argc, char** argv) {
         fwrite(buffer, (size_t)(p - buffer), 1, f);
         
         if(i%FL==FL-1) { printf("new file\n");
-            fclose(f);
+            fclose(f); f = NULL;
             if(ch==1) write_midi_ch(allnotes,filenames[fc],N);
             if(mel==1) write_midi_mel(allnotes,filenames[fc],N);
             fc++;
         }
-        //if(i%F11==F11-1) {
-        //    printf("%d/12\npress enter\n",(i+1)/F11);
-        //    getchar();
-        //}
         
+    }
+
+    if(f) {
+        fclose(f);
+        //printf("%d: %s\n",fc,filenames[fc]);
+        if(N<=NLIMIT) {
+            if(ch==1) write_midi_ch(allnotes,filenames[fc],N); // no splitting
+            if(mel==1) write_midi_mel(allnotes,filenames[fc],N);
+        }
+            
     }
     
     
