@@ -35,7 +35,8 @@ if [ -d "$MAC_APP_SRC" ]; then
   rm -rf "$MAC_APP_DST"
   cp -R "$MAC_APP_SRC" "$MAC_APP_DST"
   if [ -f "$MAC_DIR/bin/note_permutations" ]; then
-    cp "$MAC_DIR/bin/note_permutations" "$MAC_APP_DST/Contents/Resources/"
+    mkdir "$MAC_APP_DST/Contents/Resources"
+    cp "$MAC_DIR/bin/note_permutations" "$MAC_APP_DST/Contents/Resources"
   fi
 fi
 
