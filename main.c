@@ -218,7 +218,7 @@ int main(int argc, char** argv) {
     }
 
     if(f) {
-        fclose(f);
+        fclose(f); f=NULL;
         //printf("%d: %s\n",fc,filenames[fc]);
         if(N<=NLIMIT) {
             if(ch==1) write_midi_ch(allnotes,filenames[fc],N); // no splitting
@@ -228,9 +228,9 @@ int main(int argc, char** argv) {
     }
     
     
-    if(f) fclose(f);
+    if(f) {fclose(f); f=NULL;}
 
-    for(i=0;i<files;i++) if(filenames[i]) free(filenames[i]);
+    for(i=0;i<files;i++) if(filenames[i]) {free(filenames[i]); filenames[i] = NULL;}
     
     return (EXIT_SUCCESS);
 }
