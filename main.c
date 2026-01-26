@@ -213,16 +213,7 @@ int main(int argc, char** argv) {
     }
     
     
-    
-    if(f) {
-        fclose(f);
-        //printf("%d: %s\n",fc,filenames[fc]);
-        if(N<=NLIMIT) {
-            if(ch==1) write_midi_ch(allnotes,filenames[fc],N); // no splitting
-            if(mel==1) write_midi_mel(allnotes,filenames[fc],N);
-        }
-            
-    }
+    if(f) fclose(f);
 
     for(i=0;i<files;i++) if(filenames[i]) free(filenames[i]);
     
