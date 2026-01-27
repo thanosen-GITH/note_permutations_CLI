@@ -4,7 +4,7 @@ Generate ordered permutations of musical notes and optionally export MIDI (chord
 
 ## Quick Start
 
-From the project root:
+From the project root: (Terminal: cd <downloaded folder>)
 
 ```sh
 sh macOS_build.sh
@@ -15,23 +15,35 @@ This builds and packages:
 - macOS binary: `build/note_permutations`
 - `dist/macos/`
 
-## Cross-platform builds (optional)
+## Cross-platform builds (optional) (Terminal: cd <downloaded folder>)
 
 ### Windows (cross-compile from macOS/Linux)
 
 ```sh
 sh Windows_build.sh
+sh create_dist.sh
 ```
 
 ### Linux (Docker)
 
 ```sh
 sh Linux_build.sh
+sh create_dist.sh
+```
+
+### Linux (native)
+
+```sh
+cmake -S . -B build-linux && cmake --build build-linux 
+sh create_dist.sh
 ```
 
 ## Run the app
 
 ### macOS
+```sh
+sh chmod_all.sh
+```
 - Double-click: `dist/macos/Note Permutations MacOs.app`
 - Or run directly: `dist/macos/bin/note_permutations`
 
@@ -39,6 +51,9 @@ sh Linux_build.sh
 - Double-click: `dist/windows/Note Permutations WIN.bat`
 
 ### Linux
+```sh
+sh chmod_all.sh
+```
 - Double-click: `dist/linux/Note Permutations Linux/Note Permutations.desktop`
 - Or run directly: `dist/linux/Note Permutations Linux/bin/note_permutations`
 
