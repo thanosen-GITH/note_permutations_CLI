@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Note Permutations
+Exec=sh -c '"$(dirname "%k")/run.sh"'
+Terminal=true
+Categories=Utility;Music;
