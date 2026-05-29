@@ -1,10 +1,18 @@
 @echo off
-set "DIR=%~dp0"
-if exist "%DIR%..\dist\bin\note_permutations.exe" (
-  "%DIR%..\dist\bin\note_permutations.exe"
-) else if exist "%DIR%..\build-win\note_permutations.exe" (
-  "%DIR%..\build-win\note_permutations.exe"
-) else (
-  echo Could not find note_permutations.exe
+setlocal
+
+set "SCRIPT_DIR=%~dp0"
+set "EXE=%SCRIPT_DIR%bin\note_permutations.exe"
+
+if not exist "%EXE%" (
+    echo Error: could not find executable:
+    echo %EXE%
+    echo.
+    pause
+    exit /b 1
 )
-pause
+
+cd /d "%SCRIPT_DIR%"
+"%EXE%"
+
+endlocal
