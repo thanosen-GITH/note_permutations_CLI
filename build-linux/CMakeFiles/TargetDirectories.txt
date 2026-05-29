@@ -1,0 +1,3 @@
+/src/build-linux/CMakeFiles/note_permutations.dir
+/src/build-linux/CMakeFiles/edit_cache.dir
+/src/build-linux/CMakeFiles/rebuild_cache.dir

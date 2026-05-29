@@ -1,0 +1,3 @@
+/opt/homebrew/bin/cmake -E rm -f CMakeFiles/note_permutations.dir/objects.a
+/opt/homebrew/bin/x86_64-w64-mingw32-ar qc CMakeFiles/note_permutations.dir/objects.a @CMakeFiles/note_permutations.dir/objects1.rsp
+/opt/homebrew/bin/x86_64-w64-mingw32-gcc -Wl,--whole-archive CMakeFiles/note_permutations.dir/objects.a -Wl,--no-whole-archive -o note_permutations.exe -Wl,--out-implib,libnote_permutations.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles/note_permutations.dir/linkLibs.rsp

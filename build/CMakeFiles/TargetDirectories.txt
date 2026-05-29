@@ -1,0 +1,3 @@
+/Users/thanoulijonroth/C_projects/note_permutations_repo/build/CMakeFiles/note_permutations.dir
+/Users/thanoulijonroth/C_projects/note_permutations_repo/build/CMakeFiles/edit_cache.dir
+/Users/thanoulijonroth/C_projects/note_permutations_repo/build/CMakeFiles/rebuild_cache.dir
