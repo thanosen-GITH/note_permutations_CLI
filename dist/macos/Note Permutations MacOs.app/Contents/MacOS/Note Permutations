@@ -1,9 +1,0 @@
-#!/bin/sh
-APP_DIR="$(cd "$(dirname "$0")/.." && pwd)"
-BIN="$APP_DIR/Resources/note_permutations"
-if [ ! -x "$BIN" ]; then
-  echo "Binary not found at $BIN"
-  exit 1
-fi
-osascript -e "tell application \"Terminal\" to activate" \
-          -e "tell application \"Terminal\" to do script \"'$BIN'\""
